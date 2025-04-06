@@ -9,9 +9,8 @@ from sympy import *
 x= Symbol('x')
 #Lo define como un local
 locals= {'x':x}
-f= input("Ingrese la funcion: ")
-#Sympify convierte lo ingresado en algo que puede entender sympy. Lo define como un simbolo
-sympificado= sympify(f, locals=locals)
+print("Este programa encuentra la derivada respecto a x, la integral respecto a x, y el limite cuando x tiende a 0 de una funcion ")
+print("EJEMPLO FUNCION: 3x^2 se escribe como 3*x**2")
 
 def derivar(funcion):
     derivada= diff(funcion, x)
@@ -24,18 +23,38 @@ def integrar(funcion):
 def limite(funcion):
     limite= limit(funcion, x, 0)
     print(limite)
+def ayuda():
+    print("Un coeficiente a de la variable x se escribe como a*x")
+    print("Una potencia n de x se escribe como x**n")
+    print("La division se escribe como a/b")
+    print("Las funciones se escriben completas sin usar parentesis")
 #Da a elegir que desea hacer el usuario
-elec= int(input("¿Que desea hacer? \n 1.Derivar \n 2.Integrar \n 3.Encontrar el limite cuando x tiende a 0 \n 4.¡Todas! \n"))
-match elec:
-    case 1:
-       derivar(sympificado)
-    case 2:
-       integrar(sympificado)
-    case 3:
-       limite(sympificado)
-    case 4:
-       derivar(sympificado)
-       integrar(sympificado)
-       limite(sympificado)
+elec= int(input("¿Que desea hacer? \n 1.Derivar \n 2.Integrar \n 3.Encontrar el limite cuando x tiende a 0 \n 4.¡Todas! \n 5. Ayuda \n 6.Salir\n"))
+while elec!=6:
+    match elec:
+        case 1:
+           f= input("Ingrese la funcion: ")
+           sympificado= sympify(f, locals=locals)
+           derivar(sympificado)
+           elec= int(input("¿Desea hacer otra cosa?(1-6): "))
+        case 2:
+           f= input("Ingrese la funcion: ")
+           sympificado= sympify(f, locals=locals)
+           integrar(sympificado)
+           elec= int(input("¿Desea hacer otra cosa?(1-6): "))
+        case 3:
+           f= input("Ingrese la funcion: ")
+           sympificado= sympify(f, locals=locals)
+           limite(sympificado)
+           elec= int(input("¿Desea hacer otra cosa?(1-6): "))
+        case 4:
+           f= input("Ingrese la funcion: ")
+           sympificado= sympify(f, locals=locals)
+           derivar(sympificado)
+           integrar(sympificado)
+           limite(sympificado)
+           elec= int(input("¿Desea hacer otra cosa?(1-6): "))
+        case 5:
+            ayuda()
 
 

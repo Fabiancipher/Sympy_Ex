@@ -56,5 +56,4 @@ while elec!=6:
            elec= int(input("¿Desea hacer otra cosa?(1-6): "))
         case 5:
             ayuda()
-
-
+print("¡Gracias!")
